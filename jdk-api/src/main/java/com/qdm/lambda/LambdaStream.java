@@ -161,8 +161,5 @@ public class LambdaStream {
         System.out.println("所有数字的平均值 : " + statics.getAverage());
     }
 
-    //qdm-branch1 test
-
-
 
 }
