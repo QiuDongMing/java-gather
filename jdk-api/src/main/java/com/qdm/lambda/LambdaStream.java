@@ -4,8 +4,7 @@ import com.qdm.lambda.model.Student;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -17,6 +16,7 @@ import java.util.stream.Collectors;
 public class LambdaStream {
 
     List<Student> students = null;
+    List<Integer> numbers = null;
 
     /**
      * 初始化学生信息
@@ -34,6 +34,14 @@ public class LambdaStream {
                 add(new Student(1007, "zhangsan7", 77));
             }
         };
+    }
+
+    /**
+     * 初始化numbers
+     */
+    @Before
+    public void initNumbers() {
+        numbers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
     }
 
     /**
@@ -85,14 +93,72 @@ public class LambdaStream {
         );
     }
 
+    /**
+     * 获取分数最高的学生
+     */
     @Test
-    public void streamMaxTest(){
+    public void streamMaxTest() {
         //获取分数最高的学生(同理可以获取分数最低学生)
         Student student = students
                 .stream()
                 .max((s1, s2) -> (s1.getScore() - s2.getScore()))
                 .get();
         System.out.printf("%d,%s,%d \n", student.getId(), student.getName(), student.getScore());
+    }
+
+    /**
+     * 将学生的名字组合成字符串
+     * result:studentNames = zhangsan1,zhangsan2,zhangsan3,zhangsan4,zhangsan5,zhangsan6,zhangsan7
+     */
+    @Test
+    public void streamStudentNameToStringTest() {
+        String studentNames = students
+                .stream()
+                .map(Student::getName)
+                .collect(Collectors.joining(","));
+        System.out.println("studentNames = " + studentNames);
+    }
+
+    /**
+     * 将学生的名字放入set集合
+     * result :zhangsan1,zhangsan3,zhangsan2,zhangsan5,zhangsan4,zhangsan7,zhangsan6,
+     */
+    @Test
+    public void streamStudentNameToSetTest() {
+        Set<String> studentSet = students
+                .stream()
+                .map(Student::getName)
+                .collect(Collectors.toSet());
+        studentSet.forEach((s)-> System.out.printf(s + ","));
+    }
+
+    /**
+     * 将学生的名字放入TreeSet集合(有序)
+     * result :zhangsan1,zhangsan2,zhangsan3,zhangsan4,zhangsan5,zhangsan6,zhangsan7,
+     */
+    @Test
+    public void streamStudentNameToTreeSetTest() {
+        TreeSet<String> studentTreeSet = students
+                .stream()
+                .map(Student::getName)
+                .collect(Collectors.toCollection(TreeSet::new));
+        studentTreeSet.forEach((s)-> System.out.printf(s + ","));
+    }
+
+    /**
+     * 统计numbers数据
+     */
+    @Test
+    public void streamStaticsData() {
+        IntSummaryStatistics statics = numbers
+                .stream()
+                .mapToInt((x) -> x)
+                .summaryStatistics();
+
+        System.out.println("List中最大的数字 : " + statics.getMax());
+        System.out.println("List中最小的数字 : " + statics.getMin());
+        System.out.println("所有数字的总和   : " + statics.getSum());
+        System.out.println("所有数字的平均值 : " + statics.getAverage());
     }
 
 
