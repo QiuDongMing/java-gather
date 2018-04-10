@@ -1,6 +1,6 @@
 package com.qdm.lambda;
 
-import com.qdm.lambda.model.Student;
+import com.qdm.data.po.Student;
 import org.junit.Before;
 import org.junit.Test;
 

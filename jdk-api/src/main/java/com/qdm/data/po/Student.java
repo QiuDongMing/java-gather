@@ -1,4 +1,4 @@
-package com.qdm.lambda.model;
+package com.qdm.data.po;
 
 /**
  * @author qiudm
