@@ -32,6 +32,7 @@ public class LambdaStream {
                 add(new Student(1005, "zhangsan5", 86));
                 add(new Student(1006, "zhangsan6", 66));
                 add(new Student(1007, "zhangsan7", 77));
+                add(new Student(1007, "zhangsan77", 77));
             }
         };
     }
@@ -160,6 +161,24 @@ public class LambdaStream {
         System.out.println("所有数字的总和   : " + statics.getSum());
         System.out.println("所有数字的平均值 : " + statics.getAverage());
     }
+
+    /**
+     * 当list转化为map时，作为key的值在list存在多个时，其对应转化为map时的值（v）使用（v1,v2）->v1|v2决定
+     */
+    @Test
+    public void streamStudentNameToMap() {
+        Map<Integer, String> collect = students
+                .stream()
+                .collect(Collectors.toMap(
+                        Student::getId, Student::getName, (v1, v2) -> v1)
+                );
+
+        collect.forEach((k, v) -> {
+            System.out.println("k = " + k + ", v=" + v);
+        });
+
+    }
+
 
 
 }
