@@ -14,6 +14,7 @@ public class Student {
     private Integer score;
 
     public Student() {
+        //修改2
     }
 
     public Student(Integer id, String name, Integer score) {
