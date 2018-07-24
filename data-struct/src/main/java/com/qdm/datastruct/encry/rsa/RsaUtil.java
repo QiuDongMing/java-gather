@@ -95,6 +95,7 @@ public class RsaUtil {
             byte[] decrypt = decrypt(encrypt, privateKey1);
             System.out.println("解密后 = " + new String(decrypt));
 
+            System.out.println("13 / 2 = " + 13 / 2);
 
         } catch (Exception e) {
             e.printStackTrace();
