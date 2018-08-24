@@ -1,5 +1,6 @@
 package com.qdm.lambda;
 
+import com.google.common.collect.Lists;
 import com.qdm.data.po.Student;
 import org.junit.Before;
 import org.junit.Test;
@@ -178,6 +179,34 @@ public class LambdaStream {
         });
 
     }
+
+    /**
+     * 去重
+     */
+    @Test
+    public void streamDistinct() {
+        List<String> strings = Lists.newArrayList("1","2","3","4","2","4");
+        List<String> collect = strings.stream().distinct().collect(Collectors.toList());
+        collect.forEach(s->System.out.println(s));
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
