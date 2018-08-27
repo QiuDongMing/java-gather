@@ -1,5 +1,6 @@
 package com.qdm.time;
 
+import com.qdm.utils.Utils;
 import org.junit.Test;
 import java.time.Clock;
 import java.time.LocalDate;
@@ -65,7 +66,7 @@ public class TimeApi {
 
         //2天前时间
         LocalDateTime before2Days = localDateTime.minusDays(2L);
-        System.out.println("before2Days                         :   " + before2Days
+        Utils.print("before2Days", before2Days
                 .format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:SS")));
     }
 
