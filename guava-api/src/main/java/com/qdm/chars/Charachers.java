@@ -1,5 +1,6 @@
 package com.qdm.chars;
 
+import com.google.common.base.CharMatcher;
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
 import org.junit.Test;
@@ -37,8 +38,12 @@ public class Charachers {
         System.out.println("stringList = " + stringList);
     }
 
+    @Test
+    public void charMatcherTest() {
 
 
+
+    }
 
 
 
