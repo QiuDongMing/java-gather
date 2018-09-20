@@ -13,6 +13,7 @@
         <module>data-struct</module>
         <module>design-mode</module>
         <module>guava-api</module>
+        <module>netty</module>
     </modules>
 
     <dependencies>

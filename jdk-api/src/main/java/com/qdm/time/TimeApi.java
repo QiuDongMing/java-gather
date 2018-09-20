@@ -6,6 +6,8 @@ import java.time.Clock;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalUnit;
 
 /**
  * @author qiudm
@@ -68,6 +70,10 @@ public class TimeApi {
         LocalDateTime before2Days = localDateTime.minusDays(2L);
         Utils.print("before2Days", before2Days
                 .format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:SS")));
+
+        //1个月以后
+        LocalDateTime afterOneMonth = localDateTime.plus(1, ChronoUnit.MONTHS);
+        Utils.print("afterOneMonth", afterOneMonth.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:SS")));
     }
 
 
