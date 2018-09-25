@@ -10,6 +10,19 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>design-mode</artifactId>
 
+    <dependencies>
+
+        <!-- https://mvnrepository.com/artifact/cglib/cglib -->
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>2.2.2</version>
+        </dependency>
+
+    </dependencies>
+
+
+
     <build>
         <plugins>
             <plugin>
