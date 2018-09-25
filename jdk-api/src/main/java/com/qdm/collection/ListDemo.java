@@ -5,9 +5,8 @@ import com.qdm.data.po.Student;
 import org.apache.commons.collections.CollectionUtils;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @author qiudm
@@ -50,6 +49,37 @@ public class ListDemo {
 
 
     }
+
+    @Test
+    public void listDistict() {
+
+        List<Student> students = new ArrayList<Student>() {
+            {
+                add(new Student(1001, "zhangsan1", 76));
+                add(new Student(1001, "zhangsan1", 79));
+                add(new Student(1002, "zhangsan2", 78));
+                add(new Student(1003, "zhangsan3", 75));
+                add(new Student(1004, "zhangsan4", 85));
+                add(new Student(1005, "zhangsan5", 86));
+                add(new Student(1006, "zhangsan6", 66));
+                add(new Student(1007, "zhangsan7", 77));
+                add(new Student(1009, "zhangsan9", 99));
+                add(new Student(1009, "zhangsan9", 98));
+                add(new Student(1008, "zhangsan88", 88));
+
+            }
+        };
+
+        ArrayList<Student> collect = students.stream().collect(//list是需要去重的list，返回值是去重后的list
+                Collectors.collectingAndThen(Collectors.toCollection(() -> new TreeSet<>(Comparator.comparing(o -> o.getId()))),
+                        ArrayList::new));
+
+        for (Student s: collect) {
+            System.out.println("s = " + s);
+        }
+
+    }
+
 
 
 

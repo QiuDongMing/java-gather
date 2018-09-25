@@ -1,0 +1,74 @@
+@startuml
+
+page 1x1
+'skinparam pageMargin 30
+'skinparam pageExternalColor gray
+'skinparam pageBorderColor black
+note left of Duck: 注释
+note "test1" as N1
+Duck .. N1
+N1 .. Duck
+
+abstract class Duck
+interface FlyBehavior
+class FlyNoWay
+class FlyWithWings
+class MallardDuck
+class MuteQuack
+class Quack
+interface QuackBehavior
+class Squeak
+
+FlyBehavior <.. FlyNoWay
+FlyBehavior <.. FlyWithWings
+Duck <|- MallardDuck
+QuackBehavior <.. MuteQuack
+QuackBehavior <.. Quack
+QuackBehavior <.. Squeak
+
+abstract class Duck {
+    FlyBehavior flyBehavior;
+
+    QuackBehavior quackBehavior;
+
+    void performFly();
+
+    void performQuack();
+
+    public abstract void display();
+
+    void swim();
+}
+
+interface FlyBehavior {
+ void fly()
+}
+
+class FlyNoWay {
+ void fly();
+}
+class FlyWithWings {
+ void fly();
+}
+class MallardDuck {
+    public void display();
+}
+class MuteQuack {
+quack();
+}
+class Quack {
+quack();
+}
+interface QuackBehavior {
+quack();
+}
+class Squeak {
+quack();
+}
+
+
+
+
+
+
+@enduml

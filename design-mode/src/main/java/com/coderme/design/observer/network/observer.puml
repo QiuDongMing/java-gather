@@ -1,0 +1,41 @@
+@startuml
+interface Observer {
+    void update(String message);
+}
+
+class User {
+    private String name;
+    private String message;
+
+    void update(String message);
+
+    void read();
+}
+
+interface Observerable {
+
+    void registerObserver(Observer o);
+
+    void removeObserver(Observer o);
+
+    void notifyObserver();
+}
+
+class WechatServer {
+        private List<Observer> list;
+        private String message;
+
+        void registerObserver(Observer o);
+
+        void removeObserver(Observer o);
+
+        void notifyObserver();
+
+        void setInformation(String s);
+}
+
+Observer <.. User
+Observerable <.. WechatServer
+
+
+@enduml

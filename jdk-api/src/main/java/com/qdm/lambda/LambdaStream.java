@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import java.util.*;
 import java.util.function.Predicate;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 /**
@@ -190,7 +191,13 @@ public class LambdaStream {
         collect.forEach(s->System.out.println(s));
     }
 
-
+    @Test
+    public void streamDistinct2() {
+        ArrayList<Student> distinctStudents = students.stream().collect(Collectors.collectingAndThen(
+                Collectors.toCollection(() -> new TreeSet<>(Comparator.comparing(s -> s.getId()))),
+                ArrayList::new));
+        distinctStudents.forEach(s->System.out.println(s));
+    }
 
 
 

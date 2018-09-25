@@ -6,7 +6,6 @@ import io.netty.channel.ChannelInitializer;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-
 import java.net.InetSocketAddress;
 
 /**
@@ -32,12 +31,12 @@ public class EchoServer {
             b.group(group)                                //4创建 EventLoopGroup
                     .channel(NioServerSocketChannel.class)        //5 指定使用 NIO 的传输 Channel
                     .localAddress(new InetSocketAddress(port))    //6 设置 socket 地址使用所选的端口
-                    .childHandler(new ChannelInitializer<SocketChannel>() { //7 添加 EchoServerHandler 到 Channel 的 ChannelPipeline
+                    .childHandler(new ChannelInitializer<SocketChannel>() { //7、添加 EchoServerHandler 到 Channel
+                                                                            // 的 ChannelPipeline
                         @Override
                         public void initChannel(SocketChannel ch)
                                 throws Exception {
-                            ch.pipeline().addLast(
-                                    new EchoServerHandler());
+                            ch.pipeline().addLast(new EchoServerHandler());
                         }
                     });
 

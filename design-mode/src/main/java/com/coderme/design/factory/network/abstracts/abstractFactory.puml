@@ -1,0 +1,30 @@
+@startuml
+interface Sender {
+    send()
+}
+class MailSender {
+    send()
+}
+class SmsSender {
+send()
+}
+
+Sender <.. MailSender
+Sender <.. SmsSender
+
+abstract class Factory {
+    produce()
+}
+class SendMailFactory {
+    produce()
+}
+class SendSmsFactory {
+    produce()
+}
+Factory <.. SendMailFactory
+Factory <.. SendSmsFactory
+
+note bottom of SendMailFactory: 实例一个发送邮件的类型
+note bottom of SendSmsFactory: 实例一个发送SMS的类型
+note "抽象工厂模式，便于扩展新的工厂" as N
+@enduml
