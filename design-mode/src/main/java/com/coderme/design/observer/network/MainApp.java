@@ -23,7 +23,7 @@ public class MainApp {
 
         System.out.println(" = = = = = = = =" );
         wechatServer.removeObserver(li);
-        wechatServer.setInformation("Information");
+        wechatServer.setInformation("Information_2");
         //wechatServer.notifyObserver();
 
     }
