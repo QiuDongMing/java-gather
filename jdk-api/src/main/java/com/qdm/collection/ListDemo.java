@@ -51,7 +51,7 @@ public class ListDemo {
     }
 
     @Test
-    public void listDistict() {
+    public void listDistinct() {
 
         List<Student> students = new ArrayList<Student>() {
             {
@@ -80,6 +80,26 @@ public class ListDemo {
 
     }
 
+    @Test
+    public void ArrToList() {
+        Long[] ids = {1L, 2L, 3L};
+        List<Long> longs = Arrays.asList(ids);
+        for (Long id:longs) {
+            System.out.println("id = " + id);
+        }
+    }
+
+
+    @Test
+    public void testReturn() {
+        System.out.println("1 = " + 1);
+        returnMethold();
+        System.out.println("2 = " + 2);
+    }
+
+    private void returnMethold() {
+        return;
+    }
 
 
 
