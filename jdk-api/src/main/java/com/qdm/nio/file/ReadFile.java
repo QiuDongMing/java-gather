@@ -1,7 +1,6 @@
 package com.qdm.nio.file;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
@@ -15,7 +14,18 @@ public class ReadFile {
     public static void main(String[] args) throws Exception {
         ReadFile readFile = new ReadFile();
 //        readFile.writeFile("write.txt");
+
+        Long t3 = System.currentTimeMillis();
+        readFile.ioReadFile("file.txt");
+        Long t4 = System.currentTimeMillis();
+        System.out.println("io:(t4-t3) = " + (t4-t3));
+
+        Long t1 = System.currentTimeMillis();
         readFile.readFile("file.txt");
+        Long t2 = System.currentTimeMillis();
+        System.out.println("nio:(t2-t1) = " + (t2-t1));
+
+
 
     }
 
@@ -33,7 +43,6 @@ public class ReadFile {
             buffer.flip();
             while (buffer.hasRemaining()) {
                 byte b = buffer.get();
-                System.out.println("b = " + (char)b);
             }
             buffer.clear();
             read = channel.read(buffer);
@@ -64,6 +73,16 @@ public class ReadFile {
 
 
 
+    public void ioReadFile(String fileName) throws Exception {
+        //1、获取通道(channel)
+        FileInputStream fis = new FileInputStream(fileName);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
+        String s = null;
+        while ((s = reader.readLine()) != null) {
+
+        }
+        fis.close();
+    }
 
 
 
