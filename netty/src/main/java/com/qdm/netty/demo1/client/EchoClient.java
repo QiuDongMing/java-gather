@@ -28,10 +28,14 @@ public class EchoClient {
     public void start() throws Exception {
         EventLoopGroup group = new NioEventLoopGroup();
         try {
-            Bootstrap b = new Bootstrap();                //1创建 Bootstrap
-            b.group(group)                                //2指定 EventLoopGroup 来处理客户端事件。由于我们使用 NIO 传输，所以用到了 NioEventLoopGroup 的实现
-                    .channel(NioSocketChannel.class)            //3使用的 channel 类型是一个用于 NIO 传输
-                    .remoteAddress(new InetSocketAddress(host, port))    //4设置服务器的 InetSocketAddress
+            //1创建 Bootstrap
+            Bootstrap b = new Bootstrap();
+            //2指定 EventLoopGroup 来处理客户端事件。由于我们使用 NIO 传输，所以用到了 NioEventLoopGroup 的实现
+            b.group(group)
+                    //3使用的 channel 类型是一个用于 NIO 传输
+                    .channel(NioSocketChannel.class)
+                    //4设置服务器的 InetSocketAddress
+                    .remoteAddress(new InetSocketAddress(host, port))
                     .handler(new ChannelInitializer<SocketChannel>() {    //5当建立一个连接和一个新的通道时，创建添加到 EchoClientHandler 实例 到 channel pipeline
                         @Override
                         public void initChannel(SocketChannel ch)

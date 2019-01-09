@@ -47,7 +47,7 @@ public class FileChannelTests {
 
     @Test
     public void copyFile() throws Exception {
-        String fileName = "pom.xml";
+        String fileName = "smallfile.txt";
         int sufferIndex = fileName.lastIndexOf(".");
         String suffer = fileName.substring(sufferIndex);
         String newFileName = fileName.substring(0, sufferIndex) + "_copy" + suffer;
@@ -56,11 +56,12 @@ public class FileChannelTests {
         FileChannel inputStreamChannel = fileInputStream.getChannel();
 
         //写文件
-        FileOutputStream fileOutputStream = new FileOutputStream(newFileName);
+        FileOutputStream fileOutputStream = new FileOutputStream(newFileName,true);
         FileChannel fileOutputStreamChannel = fileOutputStream.getChannel();
 
-        //
-        inputStreamChannel.transferTo(0, inputStreamChannel.size(), fileOutputStreamChannel);
+        inputStreamChannel.transferTo(  0,
+                                        inputStreamChannel.size(),
+                                        fileOutputStreamChannel );
 
         inputStreamChannel.close();
         fileOutputStreamChannel.close();
