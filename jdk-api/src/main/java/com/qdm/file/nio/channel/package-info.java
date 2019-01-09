@@ -3,7 +3,7 @@
  * @date 2018/7/3 10:09
  * @desc
  */
-package com.qdm.nio.channel;
+package com.qdm.file.nio.channel;
 /**
 Java NIO的通道类似流，但又有些不同：
  既可以从通道中读取数据，又可以写数据到通道。但流的读写通常是单向的。

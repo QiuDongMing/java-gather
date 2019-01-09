@@ -1,4 +1,4 @@
-package com.qdm.nio.channel;
+package com.qdm.file.nio.channel;
 
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;

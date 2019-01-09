@@ -1,4 +1,4 @@
-package com.qdm.io;
+package com.qdm.file.io;
 
 import com.google.common.collect.Lists;
 import org.apache.commons.collections.CollectionUtils;
@@ -16,7 +16,6 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 

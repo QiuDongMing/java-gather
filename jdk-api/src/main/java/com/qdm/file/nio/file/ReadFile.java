@@ -1,4 +1,4 @@
-package com.qdm.nio.file;
+package com.qdm.file.nio.file;
 
 import java.io.*;
 import java.nio.ByteBuffer;
