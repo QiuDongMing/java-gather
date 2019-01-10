@@ -56,7 +56,7 @@ public class FileChannelTests {
         FileChannel inputStreamChannel = fileInputStream.getChannel();
 
         //写文件
-        FileOutputStream fileOutputStream = new FileOutputStream(newFileName,true);
+        FileOutputStream fileOutputStream = new FileOutputStream(newFileName,false);
         FileChannel fileOutputStreamChannel = fileOutputStream.getChannel();
 
         inputStreamChannel.transferTo(  0,
