@@ -39,7 +39,9 @@ public class CountDownLatchDemo {
 
         try {
             System.out.println("等待两个子线程执行完成");
+            System.out.println("cdl1 = " + cdl.getCount());
             cdl.await();
+            System.out.println("cdl2 = " + cdl.getCount());
             System.out.println("两个子线程执行完成");
             System.out.println(" 执行主线程 ");
         } catch (InterruptedException e) {

@@ -56,8 +56,14 @@ public class MapTests {
 
     }
 
-    public void ClassArr() {
-        MyClass[] myClasses = new MyClass[2];
+    @Test
+    public void hashTableTest() {
+        Map<String, String> map = new Hashtable<>();
+        map.put("\"_", "a");
+        map.put("!~", "a");
+
+        System.out.println("map.size() = " + map.size());
+
 
     }
 
