@@ -4,8 +4,6 @@
 
 # IntelliJ project files
 .idea
-.gitignore
 *.iml
-hs_err_*
 out
 gen

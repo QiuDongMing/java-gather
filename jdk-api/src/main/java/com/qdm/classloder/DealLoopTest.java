@@ -44,7 +44,6 @@ public class DealLoopTest {
         Thread thread2 = new Thread(script);
         thread1.start();
         thread2.start();
-        //myTest
     }
 
 }
