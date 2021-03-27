@@ -1,0 +1,27 @@
+@startuml
+interface Sender {
+    send()
+}
+class MailSender {
+    send()
+}
+class SmsSender {
+send()
+}
+
+Sender <.. MailSender
+Sender <.. SmsSender
+
+
+class SimpleSendFactory {
+    produce(SenderType type);
+}
+note right of SimpleSendFactory: 通过类型生产发送的类型
+
+enum SenderType {
+    SMS,
+    MAIL
+}
+
+
+@enduml

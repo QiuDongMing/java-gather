@@ -6,5 +6,5 @@ package com.qdm.proxy.jdk;
  * @desc
  */
 public interface IUserService {
-    String getUserName();
+    String getUserName(String name);
 }

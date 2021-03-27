@@ -26,6 +26,14 @@ public class MyInvocationHandler implements InvocationHandler {
      */
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+        System.out.println("proxy:" + proxy.getClass().getName());
+        System.out.println("target = " + target.getClass().getName());
+        System.out.println("method:" + method.getName());
+
+        for (Object o : args) {
+            System.out.println("arg:" + o.toString());
+        }
+
         System.out.println("jdk动态代理");
         System.out.println("方法执行前调用");
         Object result = method.invoke(target, args);
@@ -38,17 +46,18 @@ public class MyInvocationHandler implements InvocationHandler {
         UserService userService = new UserService();
         UserService2 userService2 = new UserService2();
 
+
         IUserService proxyUserService = (IUserService) Proxy.newProxyInstance(IUserService.class.getClassLoader(),
                 new Class[]{IUserService.class},
                 new MyInvocationHandler(userService));
-
+//
         IUserService proxyUserService2 = (IUserService) Proxy.newProxyInstance(IUserService.class.getClassLoader(),
                 new Class[]{IUserService.class},
                 new MyInvocationHandler(userService2));
 
-        proxyUserService.getUserName();
+        proxyUserService.getUserName("args----");
         System.out.println(" = = = = = = = = = = = = =" );
-        proxyUserService2.getUserName();
+        proxyUserService2.getUserName("dsadksad");
 
     }
 

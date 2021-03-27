@@ -7,7 +7,7 @@ package com.qdm.proxy.jdk;
  */
 public class UserService2 implements IUserService {
     @Override
-    public String getUserName() {
+    public String getUserName(String name) {
         System.out.println(" get userName2 ");
         return "useName2";
     }

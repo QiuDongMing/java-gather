@@ -1,0 +1,18 @@
+@startuml
+interface BuyHouse {
+    buyHouse()
+}
+class BuyHouseImpl {
+    buyHouse()
+}
+class BuyHouseProxy {
+    private BuyHouseImpl buyHouse
+    buyHouse()
+}
+
+BuyHouse <.. BuyHouseImpl
+BuyHouse <.. BuyHouseProxy
+
+
+
+@enduml

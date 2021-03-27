@@ -8,7 +8,7 @@ package com.qdm.proxy.jdk;
 public class UserService implements IUserService {
 
 
-    public String getUserName() {
+    public String getUserName(String name) {
         System.out.println("get userName" );
         return "userName";
     }

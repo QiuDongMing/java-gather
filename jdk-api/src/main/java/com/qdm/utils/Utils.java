@@ -6,9 +6,22 @@ package com.qdm.utils;
  * @desc
  */
 public class Utils {
+    private static final Integer BLACK_COUNT = 35;
 
     public static void print(String key, Object o) {
-        System.out.println(key + "                         :   " + o);
+        int count = BLACK_COUNT;
+        StringBuffer black = new StringBuffer(" ");
+        if (key != null) {
+            if (key.length() > BLACK_COUNT) {
+                count = 0;
+            } else {
+                count -= key.length();
+            }
+        }
+        for (int i=0; i<count; i++) {
+            black.append(" ");
+        }
+        System.out.println(key + black + ":   " + o);
     }
 
 
