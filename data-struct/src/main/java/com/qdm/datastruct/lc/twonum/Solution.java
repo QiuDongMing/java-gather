@@ -1,4 +1,4 @@
-package com.qdm.datastruct.leetcode.twonum;
+package com.qdm.datastruct.lc.twonum;
 
 /**
  * @author qiudm

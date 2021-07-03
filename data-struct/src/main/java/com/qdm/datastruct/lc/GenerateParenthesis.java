@@ -1,4 +1,4 @@
-package com.qdm.datastruct.leetcode;
+package com.qdm.datastruct.lc;
 
 public class GenerateParenthesis {
 }
