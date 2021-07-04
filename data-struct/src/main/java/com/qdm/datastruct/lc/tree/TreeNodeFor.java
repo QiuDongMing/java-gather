@@ -1,5 +1,6 @@
 package com.qdm.datastruct.lc.tree;
 
+import com.google.common.collect.Lists;
 import com.qdm.datastruct.util.PrintUtil;
 
 import java.util.ArrayList;
@@ -15,8 +16,11 @@ public class TreeNodeFor {
     public static void main(String[] args) {
         TreeNode root = TreeNodeData.getInitTreeData();
 
-        List<Integer> preRes = preOrderTreeNode(root);
-        PrintUtil.printList(preRes);
+//        List<Integer> list = preOrderTreeNode(root);
+
+
+        List<Integer> list = frontOrder(root);
+        PrintUtil.printList(list);
 
     }
 
@@ -68,6 +72,29 @@ public class TreeNodeFor {
         }
 
         return list;
+    }
+
+
+    /**
+     * 后续遍历
+     * @param root
+     * @return
+     */
+    private static List<Integer> frontOrder(TreeNode root) {
+        List<Integer> list = Lists.newArrayList();
+        frontOrder1(root, list);
+        return list;
+    }
+
+
+    private static void frontOrder1(TreeNode node, List<Integer> list) {
+        if (node == null) {
+            return;
+        }
+
+        frontOrder1(node.getLeft(), list);
+        frontOrder1(node.getRight(), list);
+        list.add(node.getVal());
     }
 
 
