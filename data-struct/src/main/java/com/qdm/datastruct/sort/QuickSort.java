@@ -2,6 +2,9 @@ package com.qdm.datastruct.sort;
 
 import org.junit.Test;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * @author qiudm
  * @date 2019/1/15 16:37
@@ -50,6 +53,70 @@ public class QuickSort {
         quickSort(nums, left, first-1);
         quickSort(nums, first+1, right);
     }
+
+
+
+
+
+
+    @Test
+    public void myQuickSort() {
+        int[] arr = {3, 1, 2, 5 ,6, 9, 7, 4, 8};
+        myQuickSort(arr, 0, arr.length - 1);
+        System.out.println(Arrays.toString(arr));
+
+    }
+
+    public void myQuickSort(int[] arr, int left, int right) {
+        if (left >= right) {
+            return;
+        }
+
+        int key = arr[left];
+        int first = left;
+        int last = right;
+
+        while (first < last) {
+            while (first < last && arr[last] >= key) {
+                last--;
+            }
+            arr[first] = arr[last];
+
+            while (first < last && arr[first] <= key) {
+                first++;
+            }
+            arr[last] = arr[first];
+        }
+        arr[first] = key;
+        myQuickSort(arr, left, first-1);
+        myQuickSort(arr, first + 1, right);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
