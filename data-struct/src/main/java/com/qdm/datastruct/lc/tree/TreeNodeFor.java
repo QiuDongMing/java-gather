@@ -3,9 +3,7 @@ package com.qdm.datastruct.lc.tree;
 import com.google.common.collect.Lists;
 import com.qdm.datastruct.util.PrintUtil;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * 遍历二叉树
@@ -19,7 +17,10 @@ public class TreeNodeFor {
 //        List<Integer> list = preOrderTreeNode(root);
 
 
-        List<Integer> list = frontOrder(root);
+//        List<Integer> list = frontOrder(root);
+
+        List<Integer> list = new ArrayList<>();
+        inOrderWithStack(root, list);
         PrintUtil.printList(list);
 
     }
@@ -86,16 +87,45 @@ public class TreeNodeFor {
         return list;
     }
 
-
+    //后续
     private static void frontOrder1(TreeNode node, List<Integer> list) {
         if (node == null) {
             return;
         }
-
         frontOrder1(node.getLeft(), list);
         frontOrder1(node.getRight(), list);
         list.add(node.getVal());
     }
+
+
+    private static void inOrder(TreeNode treeNode, List<Integer> list) {
+        if(treeNode == null) {
+            return;
+        }
+        inOrder(treeNode.getLeft(), list);
+        list.add(treeNode.getVal());
+        inOrder(treeNode.getRight(), list);
+    }
+
+
+
+    private static void inOrderWithStack(TreeNode treeNode, List<Integer> list) {
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        while (treeNode != null || !stack.isEmpty()) {
+            while (treeNode != null) {
+                stack.push(treeNode);
+                treeNode = treeNode.getLeft();
+            }
+            treeNode = stack.pop();
+            list.add(treeNode.getVal());
+            treeNode = treeNode.getRight();
+        }
+    }
+
+
+
+
+
 
 
 
