@@ -19,7 +19,8 @@ public class TreeNodeData {
         root.setLeft(left);
         TreeNode right = new TreeNode(6);
         root.setRight(right);
-        left.setLeft(new TreeNode(1));
+        TreeNode t = new TreeNode(1);
+        left.setLeft(t);
         left.setRight(new TreeNode(3));
         right.setLeft(new TreeNode(5));
         right.setRight(new TreeNode(7));
